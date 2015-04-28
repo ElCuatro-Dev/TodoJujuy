@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>TodoJujuy - Móvil v2</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="head"> 
+                <a href="index.html"><div class="logotodojujuy"></div></a>
+                <div class="nav-menu"></div>
+            </div>
+            <div id="fecha_actual"></div>
+            <div id="menu-nuevo">
+                <ul class="secciones">
+                    <li class="nav-titulo">SECCIONES</li>                    
+                </ul>
+                <ul>
+                    <li class="nav-titulo nav-titulo-3"><a title="EN VIVO" href="{$smarty.const.URL_ABS_MOVIL}en-vivo" class="sin-borde"><span class="icon-circle-right rojo"></span> EN VIVO</a></li>
+                    <li class="nav-titulo nav-titulo-3"><a title="HOY" href="{$smarty.const.URL_ABS_MOVIL}" class="sin-borde"><span class="icon-circle-right rojo"></span> HOY</a></li>
+                    <li class="nav-titulo nav-titulo-2">SERVICIOS</li>
+                    <li class="der"><a href="cines">CARTELERA DE CINE</a></li>
+                    <li class="der"><a href="farmacias">FARMACIAS DE TURNO</a></li>
+                    <li class="der"><a href="ampliar-clima">CLIMA</a></li>
+                    <li class="der"><a href="cotizacion">COTIZACI&Oacute;N MONEDAS</a></li>
+                    <li class="der"><a href="horoscopo">HOR&Oacute;SCOPO</a></li>
+                    <li class="nav-titulo nav-titulo-2">MEDIOS EN VIVO</li>
+                    <li class="der"><a href="http://www.canal4jujuy.com.ar" target="_blank"><span class="icon-play rojo"></span> Canal 4 Jujuy</a></li>
+                    <li class="der"><a href="http://www.radiocityfm.com" target="_blank"><span class="icon-headphones rojo"></span> Radio City FM 107.1</a></li>
+                    <li class="der"><a href="http://www.radiofiestafm.com.ar" target="_blank"><span class="icon-headphones rojo"></span> Radio Fiesta FM 91.7</a></li>
+                </ul>            
+            </div>
+            <!--
+            <div id="menu">
+                <div class="nav-main">
+                    <ul>
+                        <li{if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/home' || $smarty.get.PF_acc == 'home'} class="active"{/if}> 
+                            <a title="HOY" href="{$smarty.const.URL_ABS_MOVIL}"> HOY</a>
+                        </li>
+                        <li{if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/en-vivo' || $smarty.get.PF_acc == 'en-vivo'} class="active"{/if}> 
+                            <a title="EN VIVO" href="{$smarty.const.URL_ABS_MOVIL}en-vivo">EN VIVO</a>
+                        </li>
+                        <li{if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/busqueda' || $smarty.get.PF_acc == 'busqueda'} class="active"{/if}>
+                            <a title="Buscar" href="{$smarty.const.URL_ABS_MOVIL}busqueda">Buscar</a> 
+                        </li>
+                        <li{if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/radios' || $smarty.get.PF_acc == 'radios'} class="active"{/if}>
+                            <a title="Radios" href="{$smarty.const.URL_ABS_MOVIL}radios">Radios</a> 
+                        </li>
+                        <li{if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/secciones' || $smarty.get.PF_acc == 'secciones'} class="active"{/if}>
+                            <div class="menu-secciones">Secciones</div>
+                        </li>
+                        <li>
+                        {if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/ampliar-nota' || $smarty.get.PF_acc == 'ampliar-nota'}
+                            <a href="{$smarty.const.URL_ABS_MOVIL}home#menuservicios">Servicios</a>
+                        {elseif $sector == 'buscar'}
+                            <a href="{$smarty.const.URL_ABS_MOVIL}home#menuservicios">Servicios</a>
+                        {else}
+                            <a href="{if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/radios' || $smarty.get.PF_acc == 'radios' || $smarty.get.PF_acc == 'movil/radio-city' || $smarty.get.PF_acc == 'radio-city' || $smarty.get.PF_acc == 'movil/radio-fiesta' || $smarty.get.PF_acc == 'radio-fiesta'}{$smarty.const.URL_ABS_MOVIL}home#menuservicios{else}{$smarty.get.PF_acc}#menuservicios{/if}" target="_self" title="Servicios">Servicios</a>
+                        {/if}
+                        </li>
+                    </ul>            
+                </div>
+                <div id="menu-secciones-listado" style="display:none">
+                    {foreach from=$sec item=s}
+                    <div id="lista">
+                        <p class="link_seccion">
+                            <div id="seccion" style="background:{$s.ns_color} url(m/img/back_seccion.png) repeat-x; border-bottom:1px solid #666; font-size:10px">
+                                <a href="./{if $s.ns_especial == 1}especiales/{/if}{$s.ns_permalink}" class="link_seccion">{$s.valor|upper}</a>
+                            </div>
+                        </p>
+                    </div>
+                    {/foreach}
+                </div>
+			</div>-->
+        </div>   
+        <div id="info">Estoy trabajando</div>                 
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>        
+        <script type="text/javascript">
+            app.initialize();			
+        </script>
+        <script>		
+        $(document).ready(function(){			
+            $('.nav-menu').click(function(e) {			
+                $('#menu-nuevo').toggle();
+            });
+			
+			var data = {							
+				"key": "test",
+				"noticias": true,
+				"secciones": true
+			};
+			data = $(this).serialize() + "&" + $.param(data);
+			$.ajax({
+				type: "GET",
+				dataType: "jsonp",
+				url: "http://www.todojujuy.com/webservice/index_android_v2015?callback=?",
+				data: data,
+				success: function(response) {
+					//console.log(response);
+					//if (response.respData == 200) {
+						$('#fecha_actual').html(response.respData.fecha);
+						$.each(response.respData.secciones, function( key, value ) {
+							//$('#secciones').append('<li>'+value.valor+'</li>');
+							var contenido1 = '<li><a href="./';							
+							var contenido2 = '';
+							if (value.ns_especial == 1) contenido2 = 'especiales/';
+							contenido3 = value.ns_permalink+'" style="border-left-color:'+value.ns_color+'">'+value.valor+'</a></li>';
+							//alert(contenido);
+							$('.secciones').append(contenido1+contenido2+contenido3);
+							//console.log(response.respData.secciones);
+						});
+					//}
+					//else {
+					//	$('#info').html(response.respError);
+					//}
+				},
+				error: function (responseData, textStatus, errorThrown) {
+					//alert('POST failed.');
+					console.log(responseData);
+				} 
+			});
+        });
+        </script>
+    </body>
+</html>
