@@ -91,20 +91,21 @@
             $('.nav-menu').click(function(e) {			
                 $('#menu-nuevo').toggle();
             });
-			
+			/*
 			var data = {							
 				"key": "test",
 				"noticias": "true",
 				"secciones": "true"
 			};
 			data = $(this).serialize() + "&" + $.param(data);
-			var enlace = "http://www.todojujuy.com/webservice/index_android_v2015?callback=?"+data;
+			*/
+			var enlace = "http://www.todojujuy.com/webservice/index_android_v2015?noticias=true&secciones=true&callback=?";
 			alert(enlace);
 			$.ajax({
 				type: "GET",
 				dataType: "jsonp",
 				url: enlace,
-				data: data,
+				//data: data,
 				success: function(response) {
 					alert('ok');
 					console.log(response);
