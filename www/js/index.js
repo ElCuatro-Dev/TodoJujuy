@@ -19,7 +19,8 @@ var app = {
 		var data = {							
 			"key": "test",
 			"noticias": true,
-			"secciones": true
+			"secciones": true,
+			"fecha": true,			
 		};
 		data = $(this).serialize() + "&" + $.param(data);
 		$.ajax({
