@@ -102,11 +102,11 @@
 			$.ajax({
 				type: "GET",
 				dataType: "jsonp",
-				url: "http://www.todojujuy.com/webservice/index_android_v2015?callback=?",
+				url: "http://www.todojujuy.com/webservices/index_android_v2015?callback=?",
 				data: data,
 				success: function(response) {
 					alert('ok');
-					//console.log(response);
+					console.log(response);
 					//if (response.respData == 200) {
 						$('#fecha_actual').html(response.respData.fecha);
 						$.each(response.respData.secciones, function( key, value ) {
@@ -126,7 +126,7 @@
 				},
 				error: function (responseData, textStatus, errorThrown) {
 					//alert('POST failed.');
-					alert('error'+responseData);
+					alert('error'+responseData.readyState+'-'+responseData.error);
 					console.log(responseData);
 				} 
 			});
