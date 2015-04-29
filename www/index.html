@@ -105,10 +105,10 @@
 			$.ajax({
 				type: "GET",
 				dataType: "jsonp",
-				url: enlace,
+				url: "http://www.wirenetserver.com.ar/app/index_052015.php?noticias=true&secciones=true&callback=?",
 				//data: data,
 				success: function(response) {
-					alert('ok');
+					alert('oka');
 					console.log(response);
 					//if (response.respData == 200) {
 						$('#fecha_actual').html(response.respData.fecha);
