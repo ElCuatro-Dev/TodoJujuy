@@ -98,11 +98,12 @@
 				"secciones": "true"
 			};
 			data = $(this).serialize() + "&" + $.param(data);
-			alert(data);
+			var enlace = "http://www.todojujuy.com/webservice/index_android_v2015?callback=?"+data;
+			alert(enlace);
 			$.ajax({
 				type: "GET",
 				dataType: "jsonp",
-				url: "http://www.todojujuy.com/webservice/index_android_v2015?callback=?",
+				url: enlace,
 				data: data,
 				success: function(response) {
 					alert('ok');
