@@ -21,8 +21,8 @@
                     <li class="nav-titulo">SECCIONES</li>                    
                 </ul>
                 <ul>
-                    <li class="nav-titulo nav-titulo-3"><a title="EN VIVO" href="{$smarty.const.URL_ABS_MOVIL}en-vivo" class="sin-borde"><span class="icon-circle-right rojo"></span> EN VIVO</a></li>
-                    <li class="nav-titulo nav-titulo-3"><a title="HOY" href="{$smarty.const.URL_ABS_MOVIL}" class="sin-borde"><span class="icon-circle-right rojo"></span> HOY</a></li>
+                    <li class="nav-titulo nav-titulo-3"><a title="EN VIVO" href="en-vivo.html" class="sin-borde"><span class="icon-circle-right rojo"></span> EN VIVO</a></li>
+                    <li class="nav-titulo nav-titulo-3"><a title="HOY" href="index.html" class="sin-borde"><span class="icon-circle-right rojo"></span> HOY</a></li>
                     <li class="nav-titulo nav-titulo-2">SERVICIOS</li>
                     <li class="der"><a href="cines">CARTELERA DE CINE</a></li>
                     <li class="der"><a href="farmacias">FARMACIAS DE TURNO</a></li>
@@ -35,51 +35,14 @@
                     <li class="der"><a href="http://www.radiofiestafm.com.ar" target="_blank"><span class="icon-headphones rojo"></span> Radio Fiesta FM 91.7</a></li>
                 </ul>            
             </div>
-            <!--
-            <div id="menu">
-                <div class="nav-main">
-                    <ul>
-                        <li{if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/home' || $smarty.get.PF_acc == 'home'} class="active"{/if}> 
-                            <a title="HOY" href="{$smarty.const.URL_ABS_MOVIL}"> HOY</a>
-                        </li>
-                        <li{if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/en-vivo' || $smarty.get.PF_acc == 'en-vivo'} class="active"{/if}> 
-                            <a title="EN VIVO" href="{$smarty.const.URL_ABS_MOVIL}en-vivo">EN VIVO</a>
-                        </li>
-                        <li{if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/busqueda' || $smarty.get.PF_acc == 'busqueda'} class="active"{/if}>
-                            <a title="Buscar" href="{$smarty.const.URL_ABS_MOVIL}busqueda">Buscar</a> 
-                        </li>
-                        <li{if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/radios' || $smarty.get.PF_acc == 'radios'} class="active"{/if}>
-                            <a title="Radios" href="{$smarty.const.URL_ABS_MOVIL}radios">Radios</a> 
-                        </li>
-                        <li{if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/secciones' || $smarty.get.PF_acc == 'secciones'} class="active"{/if}>
-                            <div class="menu-secciones">Secciones</div>
-                        </li>
-                        <li>
-                        {if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/ampliar-nota' || $smarty.get.PF_acc == 'ampliar-nota'}
-                            <a href="{$smarty.const.URL_ABS_MOVIL}home#menuservicios">Servicios</a>
-                        {elseif $sector == 'buscar'}
-                            <a href="{$smarty.const.URL_ABS_MOVIL}home#menuservicios">Servicios</a>
-                        {else}
-                            <a href="{if $smarty.get.PF_acc == 'movil/' || $smarty.get.PF_acc == 'movil/radios' || $smarty.get.PF_acc == 'radios' || $smarty.get.PF_acc == 'movil/radio-city' || $smarty.get.PF_acc == 'radio-city' || $smarty.get.PF_acc == 'movil/radio-fiesta' || $smarty.get.PF_acc == 'radio-fiesta'}{$smarty.const.URL_ABS_MOVIL}home#menuservicios{else}{$smarty.get.PF_acc}#menuservicios{/if}" target="_self" title="Servicios">Servicios</a>
-                        {/if}
-                        </li>
-                    </ul>            
-                </div>
-                <div id="menu-secciones-listado" style="display:none">
-                    {foreach from=$sec item=s}
-                    <div id="lista">
-                        <p class="link_seccion">
-                            <div id="seccion" style="background:{$s.ns_color} url(m/img/back_seccion.png) repeat-x; border-bottom:1px solid #666; font-size:10px">
-                                <a href="./{if $s.ns_especial == 1}especiales/{/if}{$s.ns_permalink}" class="link_seccion">{$s.valor|upper}</a>
-                            </div>
-                        </p>
-                    </div>
-                    {/foreach}
-                </div>
-			</div>-->
-        </div>   
-        <div id="info">Estoy trabajando</div>  
-        <div id="deviceready">.:.</div>               
+            <div id="clima">       
+                <div class="info_clima"></div>
+			</div>
+			<div align="center" id="escritorio">
+                <a title="VERSI&Oacute;N DE ESCRITORIO" href="http://www.todojujuy.com?escritorio=true">Versión de escritorio</a>
+        	</div>
+        </div>
+        <div id="info">Estoy trabajando</div>          
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>        
@@ -108,20 +71,17 @@
 				success: function(response) {
 					$('#fecha_actual').html(response.respData.fecha);
 					$.each(response.respData.secciones, function( key, value ) {
-						//$('#secciones').append('<li>'+value.valor+'</li>');
 						var contenido1 = '<li><a href="./';							
 						var contenido2 = '';
 						if (value.ns_especial == 1) contenido2 = 'especiales/';
 						contenido3 = value.ns_permalink+'" style="border-left-color:'+value.ns_color+'">'+value.valor+'</a></li>';
-						//alert(contenido);
 						$('.secciones').append(contenido1+contenido2+contenido3);
-						//console.log(response.respData.secciones);
-					});
+					});					
+					$('.info_clima').html('<img src="http://www.todojujuy.com/img/encabezado/clima_80b_'+response.respData.clima.cw_icono+'.png" width="18" height="18" /> T: '+response.respData.clima.cw_temp+'&deg;C <span class="barrita">|</span> H: '+response.respData.clima.cw_humedad+' <a href="./ampliar-clima"><span class="ver_mas">VER CLIMA</span></a>');
 				},
 				error: function (responseData, textStatus, errorThrown) {
 					//alert('POST failed.');
-					alert('error'+textStatus+'ooo'+errorThrown);
-					//console.log(responseData);
+					alert('error'+textStatus+'ooo'+errorThrown);					
 				} 
 			});
         });
