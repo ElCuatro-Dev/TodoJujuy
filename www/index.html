@@ -98,6 +98,7 @@
 				"secciones": true
 			};
 			data = $(this).serialize() + "&" + $.param(data);
+			alert(data);
 			$.ajax({
 				type: "GET",
 				dataType: "jsonp",
