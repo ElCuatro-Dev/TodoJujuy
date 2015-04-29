@@ -28,11 +28,18 @@ var app = {
 			url: "http://www.todojujuy.com/webservice/index_android_v2015?callback=?",
 			data: data,
 			success: function(response) {
-				console.log(response);
+				//console.log(response);
 				//if (response.respData == 200) {
+					$('#fecha_actual').html(response.respData.fecha);
 					$.each(response.respData.secciones, function( key, value ) {
-						$('#info').html(response.respData.secciones[0].id);	
-						console.log(response.respData.secciones);
+						//$('#secciones').append('<li>'+value.valor+'</li>');
+						var contenido1 = '<li><a href="./';							
+						var contenido2 = '';
+						if (value.ns_especial == 1) contenido2 = 'especiales/';
+						contenido3 = value.ns_permalink+'" style="border-left-color:'+value.ns_color+'">'+value.valor+'</a></li>';
+						//alert(contenido);
+						$('.secciones').append(contenido1+contenido2+contenido3);
+						//console.log(response.respData.secciones);
 					});
 				//}
 				//else {
