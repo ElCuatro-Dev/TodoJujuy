@@ -91,46 +91,37 @@
             $('.nav-menu').click(function(e) {			
                 $('#menu-nuevo').toggle();
             });
-			/*
+			
 			var data = {							
 				"key": "test",
 				"noticias": "true",
 				"secciones": "true"
 			};
 			data = $(this).serialize() + "&" + $.param(data);
-			*/
-			//var enlace = "http://www.todojujuy.com/webservice/index_android_v2015?noticias=true&secciones=true&callback=?";
-			var enlace = "http://www.wirenetserver.com.ar/app/index_052015.php?noticias=true&secciones=true&callback=?";
-			alert(enlace);
+			
+			//var enlace = "http://www.todojujuy.com/webservice/index_android_v2015?noticias=true&secciones=true&callback=?";			
 			$.ajax({
 				type: "GET",
 				dataType: "jsonp",
-				url: "http://www.wirenetserver.com.ar/app/index_052015.php?noticias=true&secciones=true&callback=?",
-				//data: data,
+				url: "http://www.wirenetserver.com.ar/app/index_052015.php?callback=?",
+				data: data,
 				success: function(response) {
-					alert('oka');
-					console.log(response);
-					//if (response.respData == 200) {
-						$('#fecha_actual').html(response.respData.fecha);
-						$.each(response.respData.secciones, function( key, value ) {
-							//$('#secciones').append('<li>'+value.valor+'</li>');
-							var contenido1 = '<li><a href="./';							
-							var contenido2 = '';
-							if (value.ns_especial == 1) contenido2 = 'especiales/';
-							contenido3 = value.ns_permalink+'" style="border-left-color:'+value.ns_color+'">'+value.valor+'</a></li>';
-							//alert(contenido);
-							$('.secciones').append(contenido1+contenido2+contenido3);
-							//console.log(response.respData.secciones);
-						});
-					//}
-					//else {
-					//	$('#info').html(response.respError);
-					//}
+					$('#fecha_actual').html(response.respData.fecha);
+					$.each(response.respData.secciones, function( key, value ) {
+						//$('#secciones').append('<li>'+value.valor+'</li>');
+						var contenido1 = '<li><a href="./';							
+						var contenido2 = '';
+						if (value.ns_especial == 1) contenido2 = 'especiales/';
+						contenido3 = value.ns_permalink+'" style="border-left-color:'+value.ns_color+'">'+value.valor+'</a></li>';
+						//alert(contenido);
+						$('.secciones').append(contenido1+contenido2+contenido3);
+						//console.log(response.respData.secciones);
+					});
 				},
 				error: function (responseData, textStatus, errorThrown) {
 					//alert('POST failed.');
 					alert('error'+textStatus+'ooo'+errorThrown);
-					console.log(responseData);
+					//console.log(responseData);
 				} 
 			});
         });
