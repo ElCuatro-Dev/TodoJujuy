@@ -1,0 +1,86 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?4an73m');
+	src:url('../fonts/icomoon.eot?#iefix4an73m') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?4an73m') format('woff'),
+		url('../fonts/icomoon.ttf?4an73m') format('truetype'),
+		url('../fonts/icomoon.svg?4an73m#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-whatsapp:before {
+	content: "\e600";
+}
+
+.icon-headphones:before {
+	content: "\e910";
+}
+
+.icon-play:before {
+	content: "\e912";
+}
+
+.icon-film:before {
+	content: "\e913";
+}
+
+.icon-coin-dollar:before {
+	content: "\e93b";
+}
+
+.icon-aid-kit:before {
+	content: "\e998";
+}
+
+.icon-sun:before {
+	content: "\e9d4";
+}
+
+.icon-play3:before {
+	content: "\ea1c";
+}
+
+.icon-infinite:before {
+	content: "\ea2f";
+}
+
+.icon-arrow-right2:before {
+	content: "\ea3c";
+}
+
+.icon-arrow-down2:before {
+	content: "\ea3e";
+}
+
+.icon-circle-right:before {
+	content: "\ea42";
+}
+
+.icon-facebook3:before {
+	content: "\ea8e";
+}
+
+.icon-twitter3:before {
+	content: "\ea93";
+}
+
+.gris { color: #656464; }
+.rojo { color: #d73a3a; }
+.blanco {color: #FFF ;}
+
+.x2 { font-size: 2em; padding: 0.4em 0; line-height: 2.1em }
