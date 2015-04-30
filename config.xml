@@ -21,4 +21,5 @@
   <gap:splash src="res/img/android/ldpi.png" gap:platform="ios" width="320" height="480"/>
   <gap:splash src="res/img/android/mdpi.png" gap:platform="ios" width="640" height="960"/>
   <access origin="*"/>
+  
 </widget>
