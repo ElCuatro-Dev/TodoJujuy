@@ -48,9 +48,9 @@ a:hover { text-decoration: none; }
 #lista2 { width: 100%; padding: 5px 0; border-bottom: dotted 1px #ddd; float: left; }
 #lista2 .cuerpo { padding: 5px 0; width: 100%; font-size: 1.1em; line-height: 1.3em; }
 #lista2 .titulos_m { padding: 5px 0; margin: 0; width: 100%; font-weight: 700; font-size: 1.7em; line-height: 1.2em; letter-spacing: 0; }
-#lista2 .titulos_s { padding: 5px 0; margin: 0; width: 100%; font-weight: 300; font-size: 1.0em; line-height: 1.8em; height:1.8em; letter-spacing: -1; }
-#lista2 .titulos_s a { line-height: 1.8em; height:1.8em; padding-left:6px; padding-right:6px; margin-right:4px; color:#FFF; font-size:1em; font-weight: 300 !important; float:left }
-#lista2 .titulos_f { padding: 5px 0; margin: 0; width: 100%; font-size: 1.0em; line-height: 1.2em; color: #949494; letter-spacing: -1; }
+#lista2 .titulos_s { }
+#lista2 .titulos_s a { padding:3px 6px; margin-right:4px; font-weight: 300 !important; font-size: 1.0em; height:14px; line-height:14px; letter-spacing: -1; float:left; color:#FFF; }
+#lista2 .titulos_f { padding:3px 6px; font-size:1.0em; height:14px; line-height: 14px; letter-spacing: -1; color: #949494; }
 
 /*************************************************/
 #servicios { font-family: 'Roboto', sans-serif; font-weight: 300; width: 100%; }
