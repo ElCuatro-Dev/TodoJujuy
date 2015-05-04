@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->        
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/iconmoon.css" />
+        <title>TodoJujuy - Móvil v2</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="head"> 
+                <a href="index.html"><div class="logotodojujuy"></div></a>
+                <div class="nav-menu"></div>
+            </div>
+            <div id="fecha_actual"></div>
+            <div id="menu-nuevo">
+                <ul class="secciones">
+                    <li class="nav-titulo">SECCIONES</li>                    
+                </ul>
+                <ul>
+                    <li class="nav-titulo nav-titulo-3"><a title="EN VIVO" href="en-vivo.html" class="sin-borde"><span class="icon-circle-right rojo"></span> EN VIVO</a></li>
+                    <li class="nav-titulo nav-titulo-3"><a title="HOY" href="index.html" class="sin-borde"><span class="icon-circle-right rojo"></span> HOY</a></li>
+                    <li class="nav-titulo nav-titulo-2">SERVICIOS</li>
+                    <li class="der"><a href="cines">CARTELERA DE CINE</a></li>
+                    <li class="der"><a href="farmacias">FARMACIAS DE TURNO</a></li>
+                    <li class="der"><a href="ampliar-clima">CLIMA</a></li>
+                    <li class="der"><a href="cotizacion">COTIZACI&Oacute;N MONEDAS</a></li>
+                    <li class="der"><a href="horoscopo">HOR&Oacute;SCOPO</a></li>
+                    <li class="nav-titulo nav-titulo-2">MEDIOS EN VIVO</li>
+                    <li class="der"><a href="http://www.canal4jujuy.com.ar" target="_blank"><span class="icon-play rojo"></span> Canal 4 Jujuy</a></li>
+                    <li class="der"><a href="http://www.radiocityfm.com" target="_blank"><span class="icon-headphones rojo"></span> Radio City FM 107.1</a></li>
+                    <li class="der"><a href="http://www.radiofiestafm.com.ar" target="_blank"><span class="icon-headphones rojo"></span> Radio Fiesta FM 91.7</a></li>
+                </ul>            
+            </div>
+            <div id="clima">       
+                <div class="info_clima"><div class="loading"></div></div>
+			</div>
+			<div align="center" id="escritorio">
+                <a title="VERSI&Oacute;N DE ESCRITORIO" href="http://www.todojujuy.com?escritorio=true">Versión de escritorio</a>
+        	</div>
+            <div id="content">            	
+                <div class="textoloading">Obteniendo información</div>
+                <div class="loading"></div>	
+            </div>
+        </div>
+        <div id="info"></div> 
+        
+        <div class="titulo_separador">&nbsp;SECCIONES &#8250;</div>
+        <div id="secciones-items"></div>        
+        <div class="titulo_separador">&nbsp;SERVICIOS &#8250;</div>
+        <div id="servicios">	
+        	<a href="cines"><div class="s">&nbsp;<span class="icon-film"></span> &nbsp;CARTELERA DE CINE</div></a>
+            <a href="farmacias"><div class="s">&nbsp;<span class="icon-aid-kit"></span> &nbsp;FARMACIAS DE TURNO</div></a>
+            <a href="ampliar-clima"><div class="s">&nbsp;<span class="icon-sun"></span> &nbsp;CLIMA</div></a>
+            <a href="cotizacion"><div class="s">&nbsp;<span class="icon-coin-dollar"></span> &nbsp;COTIZACI&Oacute;N MONEDAS</div></a>
+            <a href="horoscopo"><div class="s">&nbsp;<span class="icon-infinite"></span> &nbsp;HOR&Oacute;SCOPO</div></a>
+        </div>                 
+        <div id="lista3">
+            <div id="pie">
+                <div class="escritorio"><a title="VERSI&Oacute;N DE ESCRITORIO" href="http://www.todojujuy.com?escritorio=true">Versi&oacute;n de escritorio</a></div>
+                <div class="derechos">TodoJujuy.com &copy; 2015<br />Todos los derechos reservados</div>
+             </div>
+        </div>
+        <!--<script type="text/javascript" src="cordova.js"></script>-->
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/funciones.js"></script>        
+        <script>
+        $(document).ready(function(){			
+            $('.nav-menu').click(function(e) {			
+                $('#menu-nuevo').toggle();
+            });				
+			var data = {							
+				"key": "test",				
+				"secciones": "true",
+				"clima": "true",
+				"ampliar": "true",
+				"id": getQueryVariable("id")
+			};
+			data = $(this).serialize() + "&" + $.param(data);
+			alert(data);
+			//var enlace = "http://www.todojujuy.com/webservice/index_android_v2015?noticias=true&secciones=true&callback=?";			
+			$.ajax({
+				type: "GET",
+				dataType: "jsonp",
+				url: "http://www.wirenetserver.com.ar/app/index_052015.php?callback=?",
+				data: data,
+				success: function(response) {
+					$('#fecha_actual').html(response.respData.fecha);
+					//Cargamos las secciones
+					$.each(response.respData.secciones, function( key, value ) {
+						var contenido1 = '<li><a href="./';							
+						var contenido2 = '';
+						if (value.ns_especial == 1) contenido2 = 'especiales/';
+						contenido3 = value.ns_permalink+'" style="border-left-color:'+value.ns_color+'">'+value.valor+'</a></li>';
+						$('.secciones').append(contenido1+contenido2+contenido3);
+						
+						var valor1 = '<div id="seccion" style="background-color:'+value.ns_color+';"><a href="';
+						var valor2 = '';
+						if (value.ns_especial == 1) valor2 = 'especiales/';
+						var valor3 = value.ns_permalink+'" class="link_seccion"><span class="icon-arrow-right2"></span> &nbsp;'+value.valor+'</a></div>';
+						$('#secciones-items').append(valor1+valor2+valor3);
+					});	
+					//Cargamos el clima		
+					$('.info_clima').html('<img src="http://www.todojujuy.com/img/encabezado/clima_80b_'+response.respData.clima.cw_icono+'.png" width="18" height="18" /> T: '+response.respData.clima.cw_temp+'&deg;C <span class="barrita">|</span> H: '+response.respData.clima.cw_humedad+' <a href="./ampliar-clima"><span class="ver_mas">VER CLIMA</span></a>');
+					//Cargamos la noticia
+					$('#content').html('Desde aqui');					
+				},
+				error: function (responseData, textStatus, errorThrown) {
+					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');
+					//alert('error'+textStatus+'ooo'+errorThrown);					
+				} 
+			});		
+        });
+        </script>
+    </body>
+</html>
