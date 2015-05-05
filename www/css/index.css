@@ -47,10 +47,45 @@ a:hover { text-decoration: none; }
 #lista { width: 98%; padding: 0 1%; font-family: 'Roboto', sans-serif; font-weight: 300; float: left; }
 #lista2 { width: 100%; padding: 5px 0; border-bottom: dotted 1px #ddd; float: left; }
 #lista2 .cuerpo { padding: 5px 0; width: 100%; font-size: 1.1em; line-height: 1.3em; }
-#lista2 .titulos_m { padding: 5px 0; margin: 0; width: 100%; font-weight: 700; font-size: 1.7em; line-height: 1.2em; letter-spacing: 0; }
+#lista2 .titulos_m { padding: 5px 0; margin: 0; width: 100%; font-weight: 700 !important; font-size: 1.7em; line-height: 1.2em; letter-spacing: 0; }
 #lista2 .titulos_s { }
 #lista2 .titulos_s a { padding:3px 6px; margin-right:4px; font-weight: 300 !important; font-size: 1.0em; height:14px; line-height:14px; letter-spacing: -1; float:left; color:#FFF; }
 #lista2 .titulos_f { padding:3px 6px; font-size:1.0em; height:14px; line-height: 14px; letter-spacing: -1; color: #949494; }
+#lista2 .titulos_copete { padding: 5px 0; color: #000; width: 100%; font-family: 'Roboto', sans-serif !important; font-weight: 300 !important; font-size: 1.2em; line-height: 1.3em; }
+#not_seccion_foto_borde { float:left }
+#lista .cuerpo, #lista .cuerpo p { padding: 5px 0; color: #000; width: 100%; font-weight: 300 !important; font-size: 1.1em; line-height: 1.2em; float: left }
+.MsoNormal { padding: 5px 1%; color: #000; width: 98%; font-family: 'Roboto', sans-serif !important; font-weight: 300 !important; font-size: 1em; line-height: 1em; }
+#lista .titulos_cuerpo { font-size: 1em; line-height: 16px; color: #333; text-align: justify }
+
+
+#relacionada { padding: 10px 0; width: 100%; border-top: 1px solid #D1D1D1;  font-family: 'Roboto', sans-serif; font-size: 1em; font-weight: 300 !important; float: left; }
+#relacionada .rel_imagen { width:48%; margin-right:0.5em; float:left; }
+#relacionada .rel_der { width:48%; float:left; }
+#relacionada .rel_titulo { font-size: 1.4em;color: #232323; line-height: 1.2em; margin-bottom: 0.4em; width: 100%; font-weight:400 !important; }
+#relacionada .pesada { font-weight: 400 !important }
+
+#relacionada .rel_texto { font-size: 1.2em; color: #232323; width:50%; float:left; line-height:1.2em }
+#relacionada .rel_hora { font-size: 0.9em; line-height:1.2em; color:#515151; padding: 3px 0; }
+#relacionada .rel_sec {  font-size: 1em; line-height:1.2em; color:#515151; padding: 3px 2%; }
+/**********************************
+Nota Ampliar - Te interesa
+/**********************************/
+#teinteresa { padding: 10px 0; margin-top: 10px; width: 100%; border-top: 1px solid #D1D1D1; float: left; }
+#teinteresa .tt_titulo { font-family: 'Roboto', sans-serif; font-size: 1.2em; color: #232323; line-height: 24px; margin-bottom: 0.4em; width: 100%; }
+#teinteresa .imagen { position: relative; margin-bottom: 16px; width: 100%; float: left; }
+#teinteresa .tt_nota_titulo { font-family: 'Roboto', sans-serif; ; font-size: 1.1em; color: #FFF; line-height: 2em; margin: 0.4em 0; width: 98%; padding: 0 1%; position: absolute; bottom: 0; background-color: rgba(0,0,0,0.51) }
+.separador { width: 100%; float: left; }
+/*--------------------------------------------------
+########### MENU fichas fotos
+--------------------------------------------------*/
+.menu_fichafotos { width: 100%; height: 25px; margin-top: 1px; float: left; border-bottom: solid 1px #ddd; color:#333; }
+.menu_fichafotos ul { background-color:#06F }
+.menu_fichafotos ul li { display: inline; }
+.menu_fichafotos ul li .botonera { display:block; float:left; width:70px; height:24px; line-height:24px; margin:0px; text-align:center; padding-top:3px; background-color:#E6E6E6; color:#333; font-weight:300 !important; }
+.menu_fichafotos ul li .boton { background-repeat:#C30; width: 70px; height:24px; line-height:24px; margin-right: 5px; border-bottom: solid 1px #ddd; background-position: left top; }
+.menu_fichafotos ul li .boton:hover { background-color:#404040; width: 70px; height:24px; line-height:24px; color: #23405b; text-decoration: none; margin-right: 5px; border-bottom: solid 1px #ddd; color:#FFF; }
+.menu_fichafotos ul li .botonselect { background-color:#40474f; width: 70px; height:24px; line-height:24px;  color: #23405b; text-decoration: none; margin-right: 5px; border-bottom: solid 1px #f5f5f5; color:#FFF; }
+.menu_fichafotos ul li .botonselect { color:#FFF; }
 
 /*************************************************/
 #servicios { font-family: 'Roboto', sans-serif; font-weight: 300; width: 100%; }
@@ -74,8 +109,8 @@ a:hover { text-decoration: none; }
 #pie .derechos { font-size: 0.9em; line-height: 1.4em; font-weight: 300 !important; }
 
 
-.titulo_separador { width: 100%; font-size: 0.9em; padding: 16px 0; font-family: 'Roboto', sans-serif; font-weight: 300 !important; color: #FFF; background-color: #292929; float: left; border-bottom: 1px solid #838383; }
-#escritorio a { font-family: 'Roboto', sans-serif; font-weight: 400; margin: 8px 0 3px 0; float: left; width: 100%; font-size: 12px; color: #d73a3a; text-decoration: none; }
+.titulo_separador { width:100%; font-size 0.9em; padding:16px 0; font-family:'Roboto', sans-serif; font-weight:300 !important; color:#FFF; background-color:#292929; float: left; border-bottom: 1px solid #838383; }
+#escritorio a { font-family:'Roboto', sans-serif; font-weight: 400; margin: 8px 0 3px 0; float:left; width:100%; font-size:12px; color:#d73a3a; text-decoration:none; }
 /**************************************
 Imagenes Generales
 ***************************************/
