@@ -27,4 +27,5 @@
   <preference name="splash-screen-duration" value="6000" />
   <preference name="permissions" value="none" />
   <preference name="orientation" value="portrait" />
+  <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
 </widget>
