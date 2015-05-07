@@ -8,6 +8,9 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/iconmoon.css" />
         <title>TodoJujuy - Móvil v2</title>
+        <style>
+		#map_canvas { width:100%; height:300px; float:left; background-color:#666 }
+		</style>
     </head>
     <body>
         <div id="wrapper">
@@ -44,10 +47,9 @@
             <div id="content">            	
                 <div class="textoloading">Obteniendo información</div>
                 <div class="loading"></div>	
-            </div>
+            </div>            
         </div>
-        <div id="info"></div> 
-        
+        <div id="info"></div>        
         <div class="titulo_separador">&nbsp;SECCIONES &#8250;</div>
         <div id="secciones-items"></div>        
         <div class="titulo_separador">&nbsp;SERVICIOS &#8250;</div>
@@ -65,20 +67,23 @@
              </div>
         </div>
         <!--<script type="text/javascript" src="cordova.js"></script>-->
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>        
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type="text/javascript" src="js/funciones.js"></script>  
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="js/jquery.ui.map.js"></script>    
         <script>
         $(document).ready(function(){			
             $('.nav-menu').click(function(e) {			
                 $('#menu-nuevo').toggle();
             });	
 			var data = {							
-				"key": "test",
-				"noticias": "true",
+				"key": "test",				
 				"secciones": "true",
 				"clima": "true",
+				"farmacias": "true"
 			};
 			data = $(this).serialize() + "&" + $.param(data);
-			
+			//alert(data);
 			//var enlace = "http://www.todojujuy.com/webservice/index_android_v2015?noticias=true&secciones=true&callback=?";			
 			$.ajax({
 				type: "GET",
@@ -92,9 +97,68 @@
 					$('#secciones-items').html(response.respData.secciones.html2);
 					
 					//Cargamos el clima		
-					$('.info_clima').html('<img src="http://www.todojujuy.com/img/encabezado/clima_80b_'+response.respData.clima.cw_icono+'.png" width="18" height="18" /> T: '+response.respData.clima.cw_temp+'&deg;C <span class="barrita">|</span> H: '+response.respData.clima.cw_humedad+' <a href="./ampliar-clima.html"><span class="ver_mas">VER CLIMA</span></a>');
-					//Cargamos las noticias
-					$('#content').html(response.respData.noticias.html);
+					$('.info_clima').html('<img src="http://www.todojujuy.com/img/encabezado/clima_80b_'+response.respData.clima.cw_icono+'.png" width="18" height="18" /> T: '+response.respData.clima.cw_temp+'&deg;C <span class="barrita">|</span> H: '+response.respData.clima.cw_humedad+' <a href="./ampliar-clima.html"><span class="ver_mas">VER CLIMA</span></a>');	
+					//Cargamos las farmacias	
+					//console.log(response.resData.farmacias);			
+					$('#content').html(response.respData.farmacias[0].html);	
+					//Cargamos los puntos en el mapa.
+					$.each(response.respData.farmacias, function( key, data ) {	
+
+						$.each( data.markers, function(i, marker) {
+							console.log(marker);
+							$('#map_canvas').gmap({ 'center': '-24.1857864,-65.2994767' });
+							$('#map_canvas').gmap('option', 'disableDefaultUI', true);
+							$('#map_canvas').gmap('addMarker', { 
+								'position': new google.maps.LatLng(marker.latitude, marker.longitude), 
+								'bounds': true,
+								'icon': marker.icono
+							}).click(function() {
+								$('#map_canvas').gmap('openInfoWindow', { 'content': marker.content }, this);
+							});
+						});	 	
+						/*
+						var centro = new google.maps.LatLng(value.base_lat,value.base_lng); 
+						var image = new google.maps.MarkerImage(
+							"http://www.todojujuy.com/img/icono_farmacia.png",
+							new google.maps.Size(40,35),
+							new google.maps.Point(0,0),
+							new google.maps.Point(0,35)
+						);
+						var opciones = {
+							zoom : 13,
+							center: centro,
+							icon: image,
+							mapTypeId: google.maps.MapTypeId.ROADMAP
+						};				
+						
+						var div = document.getElementById('mapa_332473');
+						var mapaccod = new google.maps.Map(div, opciones);				
+						
+						var infowindow = new google.maps.InfoWindow({
+							width:192,
+							height:100,
+							content: ''
+						});
+										
+						var marcadores = value.positions;
+						console.log(marcadores);	
+						for (var i = 0, j = marcadores.length; i < j; i++) {
+							var contenido = marcadores[i].contenido;
+							var image = marcadores[i].icono;
+							var marker = new google.maps.Marker({
+								position: new google.maps.LatLng(marcadores[i].position.lat, marcadores[i].position.lng),								
+								map: mapaccod,
+								icon: image
+							});
+							(function(marker, contenido){						
+								google.maps.event.addListener(marker, 'click', function() {
+									infowindow.setContent(contenido);
+									infowindow.open(mapaccod, marker);
+								});
+							})(marker,contenido);
+						}
+						*/
+					});
 				},
 				error: function (responseData, textStatus, errorThrown) {
 					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');
@@ -102,6 +166,6 @@
 				} 
 			});		
         });
-        </script>
+        </script>          
     </body>
 </html>

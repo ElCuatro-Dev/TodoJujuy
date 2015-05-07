@@ -43,13 +43,33 @@ a:hover { text-decoration: none; }
 #clima .info_clima { width: 100%; padding: 4px 0; margin: 5px 0; font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 12px; color: #818181; line-height: 18px; text-align: center; }
 #clima .info_clima img { width:18px; height:18px; }
 
+#ampliar-clima { padding: 5px 2%; width: 96%; font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 1.2em; line-height: 1.3em; }
+#ampliar-clima select { padding: 4px; font-size: 13pt; text-transform: uppercase; color: #666; width: 90%; }
+#ampliar-clima .tit_1 { font-size: 14px; font-weight: bold; text-align: center; color: #951A1A; background: #EEE; padding: 7px 0; margin-bottom: 5px; border-bottom: 1px dotted #CCCCCC; float: left; width: 100%; }
+#ampliar-clima .tit_2 { font-size: 13pt; color: #900; line-height: 16px; padding: 8px 0; margin: 3px 0; width: 100%; border-top: 1px dotted #999999; border-bottom: 1px dotted #999999; text-align: center; background-color: #EFEFEF; background-image: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#DDD)); background-image: -webkit-linear-gradient(#EFEFEF, #DDD); background-image: -moz-linear-gradient(#EFEFEF, #DDD); background-image: -ms-linear-gradient(#EFEFEF, #DDD); background-image: -o-linear-gradient(#EFEFEF, #DDD); background-image: linear-gradient(#EFEFEF, #DDD); }
+#ampliar-clima .tit_3 { font-size: 20px; font-weight:400 !important; color:#2A2A2A; line-height: 30px; padding: 8px 0; }
+#ampliar-clima .tit_4 { font-size:12px; color:#2A2A2A; line-height: 16px; padding: 8px 0; }
+#ampliar-clima .mini_texto { width: 90%; text-align: right; font-size: 13pt; margin-top: 8px; text-transform: uppercase; color: #900 }
+#ampliar-clima .texto { padding: 10px 0; font-size: 13pt; font-weight:300 }
+#ampliar-clima .texto_estado { font-size:2em; color:#333; line-height:1.8em; }
+#ampliar-clima .temperatura { font-size: 35pt; margin: 10px 0; color: #AA2424; font-weight: bold; }
+#ampliar-clima .humedad { font-size: 25px; margin: 4px 0; color: #333; font-weight: bold; }
+#ampliar-clima .col_1 { width: 150px; height: 150px; margin: 0 auto; text-align:center }
+#ampliar-clima .col_2 { padding: 8px 0; font-size: 13pt; line-height: 15px; color: #666; text-align:center }
+#ampliar-clima h5 { font-size: 13pt; }
+#ampliar-clima .extendido { width:100%; line-height: 16px; text-align:center; }
+#ampliar-clima .extendido img { margin:0 auto; width:80px; }
+#ampliar-clima .extendido .sub-columna { border-bottom:1px dotted rgba(51,51,51,0.31); padding:10px 0 20px 0;}
+#ampliar-clima .extendido .dato_texto { font-weight:300 }
+#ampliar-clima .clima_fecha { font-size: 14pt; color: #900; font-weight: bold; }
+
 /***** NOTICIAS *****/
 #lista { width: 98%; padding: 0 1%; font-family: 'Roboto', sans-serif; font-weight: 300; float: left; }
 #lista2 { width: 100%; padding: 5px 0; border-bottom: dotted 1px #ddd; float: left; }
 #lista2 .cuerpo { padding: 5px 0; width: 100%; font-size: 1.1em; line-height: 1.3em; }
 #lista2 .titulos_m { padding: 5px 0; margin: 0; width: 100%; font-weight: 700 !important; font-size: 1.7em; line-height: 1.2em; letter-spacing: 0; }
 #lista2 .titulos_s { }
-#lista2 .titulos_s a { padding:3px 6px; margin-right:4px; font-weight: 300 !important; font-size: 1.0em; height:14px; line-height:14px; letter-spacing: -1; float:left; color:#FFF; }
+#lista2 .titulos_s a { padding:3px 6px; margin-right:4px; font-weight: 300 !important; font-size: 12px; height:14px; line-height:14px; letter-spacing: -1; float:left; color:#FFF; }
 #lista2 .titulos_f { padding:3px 6px; font-size:1.0em; height:14px; line-height: 14px; letter-spacing: -1; color: #949494; }
 #lista2 .titulos_copete { padding: 5px 0; color: #000; width: 100%; font-family: 'Roboto', sans-serif !important; font-weight: 300 !important; font-size: 1.2em; line-height: 1.3em; }
 #not_seccion_foto_borde { float:left }
@@ -100,6 +120,43 @@ Nota Ampliar - Te interesa
 #seccion a:hover { color: #FFF; text-decoration: none; }
 #seccion a:visited { color: #FFF; text-decoration: none; }
 #seccion a:active { color: #FFF; text-decoration: none; }
+
+/***********************************************
+	CINES
+***********************************************/
+#cartelera { padding: 5px 1%; color: #4D4D4D; width: 98%; font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 1.2em; line-height: 1.3em; }
+#cartelera h2 { padding: 8px 0; font-size: 13pt; color: #666; }
+#cartelera h4 { background-color: #eee; border-bottom: 3px solid #666; border-top: 1px dotted #CCCCCC; margin: 8px 0 4px 0; padding: 10px 0 5px 0; text-align: center; font-weight:400 !important; }
+#cartelera .cine_nombre { color: #C00; font-weight: bold; margin-bottom: 6px; }
+#cartelera .cine_lista { background-color: #eee; width:96%; padding: 6px 2%; color: #666; border-top: 1px dotted #CCC; border-bottom: 1px dotted #CCC; font-size: 1em; line-height: 1.3em; }
+#cartelera .farmacias_info { font-size: 0.8em; line-height: 1.2em; }
+#cartelera .farmacias_info a { font-weight: 600; line-height: 1.8em; }
+#cartelera .horarios { font-weight: 400; }
+#cartelera .trailer { width: 100%; padding: 6px 0; color: #FFF; text-decoration: none; text-align: center; }
+#cartelera .trailer a { color: #FFF; font-size: 11px; font-weight: normal; text-decoration: none; }
+#cartelera_lista p { padding: 5px 0; color: #4D4D4D; width: 100%; font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 1em; line-height: 1.3em; }
+#cartelera_lista .imagen { text-align: center; margin-bottom: 10px; width: 100%; float: left; }
+#cartelera_lista_nombre { padding: 10px 0; font-family: 'Roboto', sans-serif; font-weight: 300 !important; font-size: 1em; line-height: 1.3em; width: 100%; float: left; }
+/****************************************/
+#horoscopo { font-size: 13px; width:100%; }
+#horoscopo-titulo { padding:10px 0; margin-bottom: 6px; font-size: 1.1em; background:#F0F0F0; width:100%; font-family: 'Roboto', sans-serif; font-weight: 400; text-align: center; float:left; }
+#horoscopo .col_1 { text-align: center; width:100%; float:left; }
+#horoscopo .col_1 img { margin: 0 auto; width:95px; height:95px; }
+#horoscopo .col_2 { text-align: justify; margin:0 2%; line-height: 1.4em; float:left; }
+#horoscopo .col_2 .texto { font-size: 1em; font-family: 'Roboto', sans-serif; font-weight: 300 !important; }
+#horoscopo h5 { font-size: 1.5em; color: #900; font-family: 'Roboto', sans-serif; font-weight: 700 !important; padding:8px 0; }
+#horoscopo .separador { border-bottom: 3px solid #CCC; margin: 10px 0; }
+/*******************************************
+	COTIZACION MONEDA
+********************************************/
+#moneda_extranjera { width: 100%; float: left; font-family: 'Roboto', sans-serif; }
+#cotizacion { width: 300px; padding: 5px; background-color: #F0F0F0; border: 1px solid #DFDFDF; line-height: 20px; margin: 10px auto; }
+#cotizacion .titulo { line-height: 20px; font-size: 14px; font-weight: 400 !important; color: #096; text-align: center; padding-bottom: 2px; border-bottom: 1px dotted #999999; }
+#cotizacion .titulo_euro { color: #C00; }
+#cotizacion .mini_titulo { font-size: 10px; line-height: 15px; color: #999; text-transform: uppercase; }
+#cotizacion .fecha { margin-top: 10px; padding: 10px 0 0 0; line-height: 14px; text-transform: uppercase; font-size: 10px; color: #666; text-align: center; }
+#cotizacion .dolar_c, #cotizacion .euro_c, #cotizacion .blue_c, #cotizacion .dolar_a { width: 140px; padding: 5px; font-size: 16px; line-height: 30px; font-weight: bold; text-align: right; float: left; }
+#cotizacion .dolar_v, #cotizacion .euro_v, #cotizacion .blue_v, #cotizacion .dolar_t { width: 140px; padding: 5px; font-size: 16px; line-height: 30px; font-weight: bold; float: left; text-align: left; }
 /******** FOOTER *******/
 #lista3 { width: 100%; padding: 0; float: left; }
 #pie { text-align: center; background: #373737; color: #FFF; padding: 5px 0; background-image: -webkit-gradient(linear, left top, left bottom, from(#999), to(#666)); background-image: -webkit-linear-gradient(#999, #666); background-image: -moz-linear-gradient(#999, #666); background-image: -ms-linear-gradient(#999, #666); background-image: -o-linear-gradient(#999, #666); background-image: linear-gradient(#999, #666); }

@@ -65,7 +65,8 @@
              </div>
         </div>
         <!--<script type="text/javascript" src="cordova.js"></script>-->
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>        
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script> 
+        <script type="text/javascript" src="js/funciones.js"></script>       
         <script>
         $(document).ready(function(){			
             $('.nav-menu').click(function(e) {			
@@ -73,9 +74,11 @@
             });	
 			var data = {							
 				"key": "test",
-				"noticias": "true",
+				"ampliarseccion": "true",
 				"secciones": "true",
 				"clima": "true",
+				"id": getQueryVariable("id"),
+				"sid": getQueryVariable("sid")
 			};
 			data = $(this).serialize() + "&" + $.param(data);
 			
@@ -93,8 +96,10 @@
 					
 					//Cargamos el clima		
 					$('.info_clima').html('<img src="http://www.todojujuy.com/img/encabezado/clima_80b_'+response.respData.clima.cw_icono+'.png" width="18" height="18" /> T: '+response.respData.clima.cw_temp+'&deg;C <span class="barrita">|</span> H: '+response.respData.clima.cw_humedad+' <a href="./ampliar-clima.html"><span class="ver_mas">VER CLIMA</span></a>');
-					//Cargamos las noticias
-					$('#content').html(response.respData.noticias.html);
+					//Cargamos la seccion
+					console.log(response);
+					$('#content').html(response.respData.ampliarseccion.html);	
+					
 				},
 				error: function (responseData, textStatus, errorThrown) {
 					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');

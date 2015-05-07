@@ -52,11 +52,11 @@
                     <li class="nav-titulo nav-titulo-3"><a title="EN VIVO" href="en-vivo.html" class="sin-borde"><span class="icon-circle-right rojo"></span> EN VIVO</a></li>
                     <li class="nav-titulo nav-titulo-3"><a title="HOY" href="index.html" class="sin-borde"><span class="icon-circle-right rojo"></span> HOY</a></li>
                     <li class="nav-titulo nav-titulo-2">SERVICIOS</li>
-                    <li class="der"><a href="cines">CARTELERA DE CINE</a></li>
-                    <li class="der"><a href="farmacias">FARMACIAS DE TURNO</a></li>
-                    <li class="der"><a href="ampliar-clima">CLIMA</a></li>
-                    <li class="der"><a href="cotizacion">COTIZACI&Oacute;N MONEDAS</a></li>
-                    <li class="der"><a href="horoscopo">HOR&Oacute;SCOPO</a></li>
+                    <li class="der"><a href="cines.html">CARTELERA DE CINE</a></li>
+                    <li class="der"><a href="farmacias.html">FARMACIAS DE TURNO</a></li>
+                    <li class="der"><a href="ampliar-clima.html">CLIMA</a></li>
+                    <li class="der"><a href="cotizacion.html">COTIZACI&Oacute;N MONEDAS</a></li>
+                    <li class="der"><a href="horoscopo.html">HOR&Oacute;SCOPO</a></li>
                     <li class="nav-titulo nav-titulo-2">MEDIOS EN VIVO</li>
                     <li class="der"><a href="http://www.canal4jujuy.com.ar" target="_blank"><span class="icon-play rojo"></span> Canal 4 Jujuy</a></li>
                     <li class="der"><a href="http://www.radiocityfm.com" target="_blank"><span class="icon-headphones rojo"></span> Radio City FM 107.1</a></li>
@@ -79,11 +79,11 @@
         <div id="secciones-items"></div>        
         <div class="titulo_separador">&nbsp;SERVICIOS &#8250;</div>
         <div id="servicios">	
-        	<a href="cines"><div class="s">&nbsp;<span class="icon-film"></span> &nbsp;CARTELERA DE CINE</div></a>
-            <a href="farmacias"><div class="s">&nbsp;<span class="icon-aid-kit"></span> &nbsp;FARMACIAS DE TURNO</div></a>
-            <a href="ampliar-clima"><div class="s">&nbsp;<span class="icon-sun"></span> &nbsp;CLIMA</div></a>
-            <a href="cotizacion"><div class="s">&nbsp;<span class="icon-coin-dollar"></span> &nbsp;COTIZACI&Oacute;N MONEDAS</div></a>
-            <a href="horoscopo"><div class="s">&nbsp;<span class="icon-infinite"></span> &nbsp;HOR&Oacute;SCOPO</div></a>
+        	<a href="cines.html"><div class="s">&nbsp;<span class="icon-film"></span> &nbsp;CARTELERA DE CINE</div></a>
+            <a href="farmacias.html"><div class="s">&nbsp;<span class="icon-aid-kit"></span> &nbsp;FARMACIAS DE TURNO</div></a>
+            <a href="ampliar-clima.html"><div class="s">&nbsp;<span class="icon-sun"></span> &nbsp;CLIMA</div></a>
+            <a href="cotizacion.html"><div class="s">&nbsp;<span class="icon-coin-dollar"></span> &nbsp;COTIZACI&Oacute;N MONEDAS</div></a>
+            <a href="horoscopo.html"><div class="s">&nbsp;<span class="icon-infinite"></span> &nbsp;HOR&Oacute;SCOPO</div></a>
         </div>                 
         <div id="lista3">
             <div id="pie">
@@ -129,21 +129,10 @@
 				success: function(response) {
 					$('#fecha_actual').html(response.respData.fecha);
 					//Cargamos las secciones
-					$.each(response.respData.secciones, function( key, value ) {
-						var contenido1 = '<li><a href="./';							
-						var contenido2 = '';
-						if (value.ns_especial == 1) contenido2 = 'especiales/';
-						contenido3 = value.ns_permalink+'" style="border-left-color:'+value.ns_color+'">'+value.valor+'</a></li>';
-						$('.secciones').append(contenido1+contenido2+contenido3);
-						
-						var valor1 = '<div id="seccion" style="background-color:'+value.ns_color+';"><a href="';
-						var valor2 = '';
-						if (value.ns_especial == 1) valor2 = 'especiales/';
-						var valor3 = value.ns_permalink+'" class="link_seccion"><span class="icon-arrow-right2"></span> &nbsp;'+value.valor+'</a></div>';
-						$('#secciones-items').append(valor1+valor2+valor3);
-					});	
+					$('.secciones').html(response.respData.secciones.html);
+					$('#secciones-items').html(response.respData.secciones.html2);
 					//Cargamos el clima		
-					$('.info_clima').html('<img src="http://www.todojujuy.com/img/encabezado/clima_80b_'+response.respData.clima.cw_icono+'.png" width="18" height="18" /> T: '+response.respData.clima.cw_temp+'&deg;C <span class="barrita">|</span> H: '+response.respData.clima.cw_humedad+' <a href="./ampliar-clima"><span class="ver_mas">VER CLIMA</span></a>');
+					$('.info_clima').html('<img src="http://www.todojujuy.com/img/encabezado/clima_80b_'+response.respData.clima.cw_icono+'.png" width="18" height="18" /> T: '+response.respData.clima.cw_temp+'&deg;C <span class="barrita">|</span> H: '+response.respData.clima.cw_humedad+' <a href="./ampliar-clima.html"><span class="ver_mas">VER CLIMA</span></a>');
 					//Cargamos la noticia
 					//console.log(response.respData.ampliar);
 					$('#content').html(response.respData.ampliar.data.html);					
