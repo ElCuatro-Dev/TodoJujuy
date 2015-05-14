@@ -12,6 +12,7 @@
     </head>
     <body>
         <div id="wrapper">
+            <div id="load"><div class="loading"></div></div>
             <div id="head"> 
                 <a href="index.html"><div class="logotodojujuy"></div></a>
                 <div class="nav-menu"></div>
@@ -81,8 +82,7 @@
 				"clima": "true",
 			};
 			data = $(this).serialize() + "&" + $.param(data);
-			
-			//var enlace = "http://www.todojujuy.com/webservice/index_android_v2015?noticias=true&secciones=true&callback=?";			
+				
 			$.ajax({
 				type: "GET",
 				dataType: "jsonp",
@@ -98,10 +98,10 @@
 					$('.info_clima').html('<img src="http://www.todojujuy.com/img/encabezado/clima_80b_'+response.respData.clima.cw_icono+'.png" width="18" height="18" /> T: '+response.respData.clima.cw_temp+'&deg;C <span class="barrita">|</span> H: '+response.respData.clima.cw_humedad+' <a href="./ampliar-clima.html"><span class="ver_mas">VER CLIMA</span></a>');
 					//Cargamos las noticias
 					$('#content').html(response.respData.noticias.html);
+					$('#load').hide();
 				},
 				error: function (responseData, textStatus, errorThrown) {
-					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');
-					//alert('error'+textStatus+'ooo'+errorThrown);					
+					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');						
 				} 
 			});		
         });

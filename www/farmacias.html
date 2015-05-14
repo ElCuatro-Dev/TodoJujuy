@@ -15,6 +15,7 @@
     </head>
     <body>
         <div id="wrapper">
+            <div id="load"><div class="loading"></div></div>
             <div id="head"> 
                 <a href="index.html"><div class="logotodojujuy"></div></a>
                 <div class="nav-menu"></div>
@@ -84,8 +85,7 @@
 				"farmacias": "true"
 			};
 			data = $(this).serialize() + "&" + $.param(data);
-			//alert(data);
-			//var enlace = "http://www.todojujuy.com/webservice/index_android_v2015?noticias=true&secciones=true&callback=?";			
+			
 			$.ajax({
 				type: "GET",
 				dataType: "jsonp",
@@ -99,8 +99,7 @@
 					
 					//Cargamos el clima		
 					$('.info_clima').html('<img src="http://www.todojujuy.com/img/encabezado/clima_80b_'+response.respData.clima.cw_icono+'.png" width="18" height="18" /> T: '+response.respData.clima.cw_temp+'&deg;C <span class="barrita">|</span> H: '+response.respData.clima.cw_humedad+' <a href="./ampliar-clima.html"><span class="ver_mas">VER CLIMA</span></a>');	
-					//Cargamos las farmacias	
-					//console.log(response.resData.farmacias);			
+					//Cargamos las farmacias						
 					$('#content').html(response.respData.farmacias[0].html);	
 					//Cargamos los puntos en el mapa.
 					$.each(response.respData.farmacias, function( key, data ) {	
@@ -116,54 +115,12 @@
 							}).click(function() {
 								$('#map_canvas').gmap('openInfoWindow', { 'content': marker.content }, this);
 							});
-						});	 	
-						/*
-						var centro = new google.maps.LatLng(value.base_lat,value.base_lng); 
-						var image = new google.maps.MarkerImage(
-							"http://www.todojujuy.com/img/icono_farmacia.png",
-							new google.maps.Size(40,35),
-							new google.maps.Point(0,0),
-							new google.maps.Point(0,35)
-						);
-						var opciones = {
-							zoom : 13,
-							center: centro,
-							icon: image,
-							mapTypeId: google.maps.MapTypeId.ROADMAP
-						};				
-						
-						var div = document.getElementById('mapa_332473');
-						var mapaccod = new google.maps.Map(div, opciones);				
-						
-						var infowindow = new google.maps.InfoWindow({
-							width:192,
-							height:100,
-							content: ''
-						});
-										
-						var marcadores = value.positions;
-						console.log(marcadores);	
-						for (var i = 0, j = marcadores.length; i < j; i++) {
-							var contenido = marcadores[i].contenido;
-							var image = marcadores[i].icono;
-							var marker = new google.maps.Marker({
-								position: new google.maps.LatLng(marcadores[i].position.lat, marcadores[i].position.lng),								
-								map: mapaccod,
-								icon: image
-							});
-							(function(marker, contenido){						
-								google.maps.event.addListener(marker, 'click', function() {
-									infowindow.setContent(contenido);
-									infowindow.open(mapaccod, marker);
-								});
-							})(marker,contenido);
-						}
-						*/
+						});	 							
 					});
+					$('#load').hide();
 				},
 				error: function (responseData, textStatus, errorThrown) {
-					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');
-					//alert('error'+textStatus+'ooo'+errorThrown);					
+					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');					
 				} 
 			});		
         });
