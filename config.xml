@@ -26,9 +26,9 @@
   <preference name="android-installLocation" value="preferExternal" />
   <preference name="AutoHideSplashScreen" value="false"/>
   <preference name="splash-screen-duration" value="10000" />
-  <preference name="SplashScreenDelay" value="10000" />   
+  <!--<preference name="SplashScreenDelay" value="10000" />   -->
   <preference name="permissions" value="none" />
   <preference name="orientation" value="portrait" />
   <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
-  <gap:plugin name="org.apache.cordova.splashscreen" />
+  <!--<gap:plugin name="org.apache.cordova.splashscreen" />-->
 </widget>
