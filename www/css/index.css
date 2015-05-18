@@ -73,7 +73,7 @@ a:hover { text-decoration: none; }
 #lista2 .titulos_f { padding:3px 6px; font-size:1.0em; height:14px; line-height: 14px; letter-spacing: -1; color: #949494; }
 #lista2 .titulos_copete { padding: 5px 0; color: #000; width: 100%; font-family: 'Roboto', sans-serif !important; font-weight: 300 !important; font-size: 1.2em; line-height: 1.3em; }
 #not_seccion_foto_borde { float:left }
-#lista .cuerpo, #lista .cuerpo p { padding: 5px 0; color: #000; width: 100%; font-weight: 300 !important; font-size: 1.1em; line-height: 1.2em; float: left }
+#lista .cuerpo, #lista .cuerpo p { padding: 0 0 5px 0; color: #000; width: 100%; font-weight: 300 !important; font-size: 1.1em; line-height: 1.2em; float: left }
 .MsoNormal { padding: 5px 1%; color: #000; width: 98%; font-family: 'Roboto', sans-serif !important; font-weight: 300 !important; font-size: 1em; line-height: 1em; }
 #lista .titulos_cuerpo { font-size: 1em; line-height: 16px; color: #333; text-align: justify }
 
