@@ -8,6 +8,7 @@
   <description>Diario Digital - Jujuy, Argentina</description>
   <content src="index.html"/>
   <access origin="*"/>
+  
   <icon src="icon.png" />
   <icon src="res/img/android/icon-ldpi.png" gap:platform="android" gap:qualifier="ldpi" gap:density="ldpi" />
   <icon src="res/img/android/icon-mdpi.png" gap:platform="android" gap:qualifier="mdpi" gap:density="mdpi" />
@@ -31,4 +32,5 @@
   <preference name="orientation" value="portrait" />
   <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
   <!--<gap:plugin name="org.apache.cordova.splashscreen" />-->
+  <gap:plugin name="org.apache.cordova.inappbrowser" />
 </widget>
