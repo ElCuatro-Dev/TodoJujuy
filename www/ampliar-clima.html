@@ -7,7 +7,7 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->        
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/iconmoon.css" />
-        <link rel="stylesheet" type="text/css" href="http://m.todojujuy.com/css/app-extra.css" />
+        <link rel="stylesheet" type="text/css" href="http://m.todojujuy.com/movil/css/app-extra.css" />
         <title>TodoJujuy - Móvil v2</title>
     </head>
     <body>
@@ -32,35 +32,20 @@
                     <li class="der"><a href="cotizacion.html">COTIZACI&Oacute;N MONEDAS</a></li>
                     <li class="der"><a href="horoscopo.html">HOR&Oacute;SCOPO</a></li>
                     <li class="nav-titulo nav-titulo-2">MEDIOS EN VIVO</li>
-                    <li class="der"><a href="http://www.canal4jujuy.com.ar" target="_blank"><span class="icon-play rojo"></span> Canal 4 Jujuy</a></li>
-                    <li class="der"><a href="http://www.radiocityfm.com" target="_blank"><span class="icon-headphones rojo"></span> Radio City FM 107.1</a></li>
-                    <li class="der"><a href="http://www.radiofiestafm.com.ar" target="_blank"><span class="icon-headphones rojo"></span> Radio Fiesta FM 91.7</a></li>
-                </ul>            
-            </div>            
-			<div align="center" id="escritorio">
-                <a title="VERSI&Oacute;N DE ESCRITORIO" href="http://www.todojujuy.com?escritorio=true">Versión de escritorio</a>
-        	</div>
+                    <li class="der"><a href="" onClick="window.open('http://m.canal4jujuy.com.ar', '_system');"><span class="icon-youtube-play rojo"></span> Canal 4 Jujuy</a></li>
+                    <li class="der"><a href="" onClick="window.open('http://m.radiocityfm.com', '_system');"><span class="icon-headphones rojo"></span> Radio City FM 107.1</a></li>
+                    <li class="der"><a href="" onClick="window.open('http://m.radiofiestafm.com.ar', '_system');"><span class="icon-headphones rojo"></span> Radio Fiesta FM 91.7</a></li>
+                </ul> 
+                <div class="nav-close"><span class="icon-angle-double-up"></span></div>            
+            </div>
             <div id="content">            	
                 <div class="textoloading">Obteniendo información</div>
                 <div class="loading"></div>	
             </div>            
         </div>
-        <div id="info"></div>        
-        <!--
-        <div class="titulo_separador">&nbsp;SECCIONES &#8250;</div>
-        <div id="secciones-items"></div>        
-        -->
-        <div class="titulo_separador">&nbsp;SERVICIOS &#8250;</div>
-        <div id="servicios">	
-        	<a href="cines.html"><div class="s">&nbsp;<span class="icon-film"></span> &nbsp;CARTELERA DE CINE</div></a>
-            <a href="farmacias.html"><div class="s">&nbsp;<span class="icon-aid-kit"></span> &nbsp;FARMACIAS DE TURNO</div></a>
-            <a href="ampliar-clima.html"><div class="s">&nbsp;<span class="icon-sun"></span> &nbsp;CLIMA</div></a>
-            <a href="cotizacion.html"><div class="s">&nbsp;<span class="icon-coin-dollar"></span> &nbsp;COTIZACI&Oacute;N MONEDAS</div></a>
-            <a href="horoscopo.html"><div class="s">&nbsp;<span class="icon-infinite"></span> &nbsp;HOR&Oacute;SCOPO</div></a>
-        </div>                 
+        <div id="info"></div>      
         <div id="lista3">
-            <div id="pie">
-                <div class="escritorio"><a title="VERSI&Oacute;N DE ESCRITORIO" href="http://www.todojujuy.com?escritorio=true">Versi&oacute;n de escritorio</a></div>
+            <div id="pie">                
                 <div class="derechos">TodoJujuy.com &copy; 2015<br />Todos los derechos reservados</div>
              </div>
         </div>
@@ -78,8 +63,7 @@
 				"clima": "true",				
 				"id": getQueryVariable("id")
 			};
-			data = $(this).serialize() + "&" + $.param(data);
-					
+			data = $(this).serialize() + "&" + $.param(data);					
 			$.ajax({
 				type: "GET",
 				dataType: "jsonp",

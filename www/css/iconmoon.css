@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot?4an73m');
-	src:url('../fonts/icomoon.eot?#iefix4an73m') format('embedded-opentype'),
-		url('../fonts/icomoon.woff?4an73m') format('woff'),
-		url('../fonts/icomoon.ttf?4an73m') format('truetype'),
-		url('../fonts/icomoon.svg?4an73m#icomoon') format('svg');
+	src:url('../fonts/icomoon.eot?-6s0v2f');
+	src:url('../fonts/icomoon.eot?#iefix-6s0v2f') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?-6s0v2f') format('woff'),
+		url('../fonts/icomoon.ttf?-6s0v2f') format('truetype'),
+		url('../fonts/icomoon.svg?-6s0v2f#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,60 +23,76 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-whatsapp:before {
-	content: "\e600";
-}
-
-.icon-headphones:before {
-	content: "\e910";
-}
-
-.icon-play:before {
-	content: "\e912";
-}
-
-.icon-film:before {
-	content: "\e913";
-}
-
-.icon-coin-dollar:before {
-	content: "\e93b";
-}
-
-.icon-aid-kit:before {
-	content: "\e998";
-}
-
-.icon-sun:before {
-	content: "\e9d4";
-}
-
-.icon-play3:before {
-	content: "\ea1c";
-}
-
-.icon-infinite:before {
-	content: "\ea2f";
-}
-
-.icon-arrow-right2:before {
-	content: "\ea3c";
-}
-
-.icon-arrow-down2:before {
-	content: "\ea3e";
-}
-
 .icon-circle-right:before {
 	content: "\ea42";
 }
 
-.icon-facebook3:before {
-	content: "\ea8e";
+.icon-headphones:before {
+	content: "\f025";
 }
 
-.icon-twitter3:before {
-	content: "\ea93";
+.icon-chevron-left:before {
+	content: "\f053";
+}
+
+.icon-chevron-right:before {
+	content: "\f054";
+}
+
+.icon-eye:before {
+	content: "\f06e";
+}
+
+.icon-caret-left:before {
+	content: "\f0d9";
+}
+
+.icon-caret-right:before {
+	content: "\f0da";
+}
+
+.icon-angle-double-left:before {
+	content: "\f100";
+}
+
+.icon-angle-double-right:before {
+	content: "\f101";
+}
+
+.icon-angle-double-up:before {
+	content: "\f102";
+}
+
+.icon-angle-left:before {
+	content: "\f104";
+}
+
+.icon-angle-right:before {
+	content: "\f105";
+}
+
+.icon-angle-up:before {
+	content: "\f106";
+}
+
+.icon-circle-o:before {
+	content: "\f10c";
+}
+
+.icon-circle:before {
+	content: "\f111";
+}
+
+.icon-chevron-circle-right:before {
+	content: "\f138";
+}
+
+.icon-youtube-play:before {
+	content: "\f16a";
+}
+
+.icon-whatsapp:before {
+	content: "\f232";
 }
 
 .gris { color: #656464; }

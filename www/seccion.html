@@ -7,7 +7,7 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->        
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/iconmoon.css" />
-        <link rel="stylesheet" type="text/css" href="http://m.todojujuy.com/css/app-extra.css" />
+        <link rel="stylesheet" type="text/css" href="http://m.todojujuy.com/movil/css/app-extra.css" />
         <title>TodoJujuy - Móvil v2</title>
     </head>
     <body>
@@ -32,41 +32,26 @@
                     <li class="der"><a href="cotizacion.html">COTIZACI&Oacute;N MONEDAS</a></li>
                     <li class="der"><a href="horoscopo.html">HOR&Oacute;SCOPO</a></li>
                     <li class="nav-titulo nav-titulo-2">MEDIOS EN VIVO</li>
-                    <li class="der"><a href="http://www.canal4jujuy.com.ar" target="_blank"><span class="icon-play rojo"></span> Canal 4 Jujuy</a></li>
-                    <li class="der"><a href="http://www.radiocityfm.com" target="_blank"><span class="icon-headphones rojo"></span> Radio City FM 107.1</a></li>
-                    <li class="der"><a href="http://www.radiofiestafm.com.ar" target="_blank"><span class="icon-headphones rojo"></span> Radio Fiesta FM 91.7</a></li>
-                </ul>            
+                    <li class="der"><a href="" onClick="window.open('http://m.canal4jujuy.com.ar', '_system');"><span class="icon-youtube-play rojo"></span> Canal 4 Jujuy</a></li>
+                    <li class="der"><a href="" onClick="window.open('http://m.radiocityfm.com', '_system');"><span class="icon-headphones rojo"></span> Radio City FM 107.1</a></li>
+                    <li class="der"><a href="" onClick="window.open('http://m.radiofiestafm.com.ar', '_system');"><span class="icon-headphones rojo"></span> Radio Fiesta FM 91.7</a></li>
+                </ul>
+                <div class="nav-close"><span class="icon-angle-double-up"></span></div>        
             </div>
             <div id="clima">       
                 <div class="info_clima"><div class="loading"></div></div>
 			</div>
-			<div align="center" id="escritorio">
-                <a title="VERSI&Oacute;N DE ESCRITORIO" href="http://www.todojujuy.com?escritorio=true">Versión de escritorio</a>
-        	</div>
             <div id="content">            	
                 <div class="textoloading">Obteniendo información</div>
                 <div class="loading"></div>	
             </div>
         </div>
-        <div id="info"></div> 
-        
-        <!--<div class="titulo_separador">&nbsp;SECCIONES &#8250;</div>
-        <div id="secciones-items"></div>  -->      
-        <div class="titulo_separador">&nbsp;SERVICIOS &#8250;</div>
-        <div id="servicios">	
-        	<a href="cines.html"><div class="s">&nbsp;<span class="icon-film"></span> &nbsp;CARTELERA DE CINE</div></a>
-            <a href="farmacias.html"><div class="s">&nbsp;<span class="icon-aid-kit"></span> &nbsp;FARMACIAS DE TURNO</div></a>
-            <a href="ampliar-clima.html"><div class="s">&nbsp;<span class="icon-sun"></span> &nbsp;CLIMA</div></a>
-            <a href="cotizacion.html"><div class="s">&nbsp;<span class="icon-coin-dollar"></span> &nbsp;COTIZACI&Oacute;N MONEDAS</div></a>
-            <a href="horoscopo.html"><div class="s">&nbsp;<span class="icon-infinite"></span> &nbsp;HOR&Oacute;SCOPO</div></a>
-        </div>                 
+        <div id="info"></div>               
         <div id="lista3">
             <div id="pie">
-                <div class="escritorio"><a title="VERSI&Oacute;N DE ESCRITORIO" href="http://www.todojujuy.com?escritorio=true">Versi&oacute;n de escritorio</a></div>
-                <div class="derechos">TodoJujuy.com &copy; 2015<br />Todos los derechos reservados</div>
+                <div class="derechos">TodoJujuy.com &copy; 2015</div>
              </div>
         </div>
-        <!--<script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script> 
         <script type="text/javascript" src="js/funciones.js"></script>       
         <script>
@@ -91,15 +76,12 @@
 				success: function(response) {
 					$('#fecha_actual').html(response.respData.fecha);
 					//Cargamos las secciones
-					$('.secciones').html(response.respData.secciones.html);
-					//$('#secciones-items').html(response.respData.secciones.html2);
-					
+					$('.secciones').html(response.respData.secciones.html);					
 					//Cargamos el clima		
 					$('.info_clima').html('<img src="http://www.todojujuy.com/img/encabezado/clima_80b_'+response.respData.clima.cw_icono+'.png" width="18" height="18" /> T: '+response.respData.clima.cw_temp+'&deg;C <span class="barrita">|</span> H: '+response.respData.clima.cw_humedad+' <a href="./ampliar-clima.html"><span class="ver_mas">VER CLIMA</span></a>');
 					//Cargamos la seccion					
 					$('#content').html(response.respData.ampliarseccion.html);	
-					$('#load').hide();
-					
+					$('#load').hide();					
 				},
 				error: function (responseData, textStatus, errorThrown) {
 					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');					
