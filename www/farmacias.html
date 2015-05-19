@@ -9,6 +9,12 @@
         <link rel="stylesheet" type="text/css" href="css/iconmoon.css" />
         <link rel="stylesheet" type="text/css" href="http://m.todojujuy.com/movil/css/app-extra.css" />
         <title>TodoJujuy - Móvil v2</title>
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8">	
+        function openDeviceBrowser (externalLinkToOpen){
+			window.open(externalLinkToOpen, '_system', 'location=no');
+		}	
+		</script>
         <style>
 		#map_canvas { width:100%; height:300px; float:left; background-color:#666 }
 		</style>
@@ -35,9 +41,9 @@
                     <li class="der"><a href="cotizacion.html">COTIZACI&Oacute;N MONEDAS</a></li>
                     <li class="der"><a href="horoscopo.html">HOR&Oacute;SCOPO</a></li>
                     <li class="nav-titulo nav-titulo-2">MEDIOS EN VIVO</li>
-                    <li class="der"><a href="" onClick="window.open('http://m.canal4jujuy.com.ar', '_system');"><span class="icon-youtube-play rojo"></span> Canal 4 Jujuy</a></li>
-                    <li class="der"><a href="" onClick="window.open('http://m.radiocityfm.com', '_system');"><span class="icon-headphones rojo"></span> Radio City FM 107.1</a></li>
-                    <li class="der"><a href="" onClick="window.open('http://m.radiofiestafm.com.ar', '_system');"><span class="icon-headphones rojo"></span> Radio Fiesta FM 91.7</a></li>
+                    <li class="der"><a href="" onClick="openDeviceBrowser('http://m.canal4jujuy.com.ar');"><span class="icon-youtube-play rojo"></span> Canal 4 Jujuy</a></li>
+                    <li class="der"><a href="" onClick="openDeviceBrowser('http://m.radiocityfm.com');"><span class="icon-headphones rojo"></span> Radio City FM 107.1</a></li>
+                    <li class="der"><a href="" onClick="openDeviceBrowser('http://m.radiofiestafm.com.ar');"><span class="icon-headphones rojo"></span> Radio Fiesta FM 91.7</a></li>
                 </ul>
                 <div class="nav-close"><span class="icon-angle-double-up"></span></div>           
             </div>
