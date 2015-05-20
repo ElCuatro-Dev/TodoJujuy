@@ -12,6 +12,11 @@
         <title>TodoJujuy - Móvil v2</title>
         <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
         <script type="text/javascript" charset="utf-8">	
+		document.addEventListener("deviceready", onDeviceReady, false);	
+		function onDeviceReady() {
+			window.analytics.startTrackerWithId('UA-57275656-3')
+		}		
+		
         function openDeviceBrowser (externalLinkToOpen){
 			window.open(externalLinkToOpen, '_system', 'location=no');
 		}	
