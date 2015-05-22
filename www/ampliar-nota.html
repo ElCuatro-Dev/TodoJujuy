@@ -137,7 +137,8 @@
 					$('#load').hide();
 				},
 				error: function (responseData, textStatus, errorThrown) {
-					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');						
+					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');	
+					$('#load').hide();					
 				} 
 			});		
         });

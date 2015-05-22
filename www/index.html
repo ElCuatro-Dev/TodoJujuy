@@ -31,7 +31,7 @@
     </head>
     <body>
         <div id="wrapper"> 
-        	<div id="load" style="display:none"></div>       	
+        	<div id="load"><div class="loading"></div></div> 	
             <div id="head"> 
                 <a href="index.html"><div class="logotodojujuy"></div></a>
                 <div class="nav-menu"></div>
@@ -104,7 +104,8 @@
 					$('#load').hide();
 				},
 				error: function (responseData, textStatus, errorThrown) {
-					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');						
+					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');		
+					$('#load').hide();				
 				} 
 			});		
         });
