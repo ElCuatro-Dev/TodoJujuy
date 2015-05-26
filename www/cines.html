@@ -46,17 +46,17 @@
                     <li class="der link" onClick="openDeviceBrowser('http://m.radiocityfm.com');"><span class="icon-headphones rojo"></span> Radio City FM 107.1</li>
                     <li class="der link" onClick="openDeviceBrowser('http://m.radiofiestafm.com.ar');"><span class="icon-headphones rojo"></span> Radio Fiesta FM 91.7</li>
                 </ul>
-                <div class="nav-close"><span class="icon-angle-double-up"></span></div>            
+                <div class="nav-close"><span class="icon-angle-double-up"></span></div>           
             </div>
             <div id="clima">       
                 <div class="info_clima"><div class="loading"></div></div>
 			</div>
-			<div id="content">            	
+            <div id="content">            	
                 <div class="textoloading">Obteniendo información</div>
                 <div class="loading"></div>	
             </div>            
         </div>
-        <div id="info"></div>          
+        <div id="info"></div>               
         <div id="lista3">
             <div id="pie">
                 <div class="derechos">TodoJujuy.com &copy; 2015</div>
@@ -77,10 +77,9 @@
 				"secciones": "true",
 				"clima": "true",
 				"cines": "true",				
-				"id": getQueryVariable("id")
+				//"id": getQueryVariable("id")
 			};
 			data = $(this).serialize() + "&" + $.param(data);
-						
 			$.ajax({
 				type: "GET",
 				dataType: "jsonp",
@@ -89,15 +88,16 @@
 				success: function(response) {
 					$('#fecha_actual').html(response.respData.fecha);
 					//Cargamos las secciones
-					$('.secciones').html(response.respData.secciones.html);
+					$('.secciones').html(response.respData.secciones.html);					
 					//Cargamos el clima		
 					$('.info_clima').html('<img src="http://www.todojujuy.com/img/encabezado/clima_80b_'+response.respData.clima.cw_icono+'.png" width="18" height="18" /> T: '+response.respData.clima.cw_temp+'&deg;C <span class="barrita">|</span> H: '+response.respData.clima.cw_humedad+' <a href="./ampliar-clima.html"><span class="ver_mas">VER CLIMA</span></a>');	
-					//Cargamos los cines				
-					$('#content').html(response.respData.cines.html);
-					$('#load').hide();									
+					//Cargamos la cotizacion			
+					$('#content').html(response.respData.cines.html);	
+					$('#load').hide();								
 				},
 				error: function (responseData, textStatus, errorThrown) {
-					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');						
+					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');	
+					$('#load').hide();						
 				} 
 			});		
         });
