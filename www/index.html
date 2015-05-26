@@ -74,11 +74,14 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script>
         $(document).ready(function(){			
-            $('.nav-menu').click(function(e) {			
-                $('#menu-nuevo').toggle();
+            $('.nav-menu').click(function(e) {	
+			 	if ($('#menu-nuevo').is(':visible'))
+                	$('#menu-nuevo').hide();
+				else
+					$('#menu-nuevo').show();
             });	
 			$('.nav-close').click(function(e) {			
-                $('#menu-nuevo').toggle();
+                $('#menu-nuevo').hide();
             });	
 			var data = {							
 				"key": "test",
