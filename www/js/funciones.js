@@ -13,3 +13,14 @@ function getQueryVariable(variable) {
 	}				
 };
 
+function fixDiv() {
+	var $cache = $('#head');
+	
+	if ($(window).scrollTop() > 0)
+		$cache.removeClass('relative').addClass('fixed');
+	else
+		$cache.removeClass('fixed').addClass('relative');
+}
+$(window).scroll(fixDiv);
+fixDiv();
+
