@@ -66,10 +66,12 @@
         <script type="text/javascript" src="js/funciones.js"></script>        
         <script>
         $(document).ready(function(){			
-            if ($('#menu-nuevo').is(':visible'))
-				$('#menu-nuevo').hide();
-			else
-				$('#menu-nuevo').show();	
+            $('.nav-menu').click(function(e) {	
+			 	if ($('#menu-nuevo').is(':visible'))
+                	$('#menu-nuevo').hide();
+				else
+					$('#menu-nuevo').show();
+            });	
 			$('.nav-close').click(function(e) {			
                 $('#menu-nuevo').hide();
             });	
