@@ -93,6 +93,7 @@
 				url: "http://m.todojujuy.com/webservice/index_v2015?callback=?",
 				data: data,
 				success: function(response) {
+					$('#load').hide();
 					$('#fecha_actual').html(response.respData.fecha);
 					//Cargamos las secciones
 					$('.secciones').html(response.respData.secciones.html);					
@@ -100,8 +101,7 @@
 					$('.info_clima').html('<img src="http://www.todojujuy.com/img/encabezado/clima_80b_'+response.respData.clima.cw_icono+'.png" width="18" height="18" /> T: '+response.respData.clima.cw_temp+'&deg;C <span class="barrita">|</span> H: '+response.respData.clima.cw_humedad+' <a href="./ampliar-clima.html"><span class="ver_mas">VER CLIMA</span></a>');
 					//Cargamos las noticias
 					$('#content').html(response.respData.noticias.html);
-					navigator.splashscreen.hide();
-					$('#load').hide();
+					//navigator.splashscreen.hide();					
 				},
 				error: function (responseData, textStatus, errorThrown) {
 					$('#content').html('Por favor intenta nuevamente en unos instantes. [#Error]');		
